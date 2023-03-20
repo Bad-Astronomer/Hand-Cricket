@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        <div id="time" class=""></div>
         <div id="score">
             <h2>SCORE</h2>
             <h2 id="score-value">0</h2>
@@ -18,8 +19,13 @@
             <h2 id="inning-value"></h2>
         </div>
         <img src="./hand_svg/fist-noshake.svg" alt="" class="og" id="right">
-        <img src="./hand_svg/fist-noshake.svg" alt="" class="og" id="left" onclick="shake(event)">
-        <div class="timeline"></div>
+        <img src="./hand_svg/fist-noshake.svg" alt="" class="og" id="left">
+        <div class="instructions">
+            <p>// Welcome, here are some <u>Instructions</u>: <br>
+                // Input a number between 1-6 during before time runs out. <br>
+                // No input = Dot ball; 3 Consecutive Dots = OUT. <br>
+            </p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
