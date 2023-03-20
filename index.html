@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Cricket</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="score">
+            <h2>SCORE</h2>
+            <h2 id="score-value">0</h2>
+        </div>
+        <div id="transition">
+            <h2 id="inning-no"></h2>
+            <h2 id="inning-value"></h2>
+        </div>
+        <img src="./hand_svg/fist-noshake.svg" alt="" class="og" id="right">
+        <img src="./hand_svg/fist-noshake.svg" alt="" class="og" id="left" onclick="shake(event)">
+        <div class="timeline"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
