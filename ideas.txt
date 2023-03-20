@@ -1,0 +1,4 @@
+Black and white (side-to-side) victory-loss effect
+Over count and score
+Better animations for numbers
+Multiplayer
