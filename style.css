@@ -1,0 +1,89 @@
+html{
+    box-sizing: border-box;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+*{
+    font-family: "Space Mono", monospace;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+}
+#score h2{
+    text-align: center;
+    font-size: clamp(2em, 5vw, 7em);
+    position: relative;
+    top: 5vh;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container img{
+    height: clamp(5em, 25vw, 30em);
+    position: absolute;
+    top: 55vh;
+    translate: 0 -50%;
+}
+#left{
+    left: 20vw;
+}
+#right{
+    right: 20vw;
+    transform: scaleX(-1);
+}
+.shake_left{
+    animation: shake_left 0.5s infinite ease-in;
+}
+.shake_right{
+    animation: shake_right 0.5s infinite ease-in;
+}
+
+@keyframes shake_left{
+    0%{
+        rotate: 0deg;
+    }
+    25%{
+        rotate: 45deg;
+    }
+    100%{
+        rotate: 0deg;
+    }
+}
+
+@keyframes shake_right{
+    0%{
+        rotate: 0deg;
+    }
+    25%{
+        rotate: -45deg;
+    }
+    100%{
+        rotate: 0deg;
+    }
+}
+
+#transition{
+    z-index: 1;
+    position: absolute;
+    top: 55vh;
+    width: 100%;
+    background-color: rgba(32, 32, 32, 0.75);
+    backdrop-filter: blur(10px);
+    height: clamp(5em, 25vw, 25em);
+    translate: 0 -50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    scale: 1 0;
+    transition: scale 0.5s ease-in;
+}
+#transition h2{
+    color: white;
+    margin: 10px;
+    font-size: clamp(2em, 5vw, 4em);
+}
