@@ -87,3 +87,24 @@ body{
     margin: 10px;
     font-size: clamp(2em, 5vw, 4em);
 }
+
+#time{
+    background-color: #01afff;
+    width: 100%;
+    height: clamp(5px, 2vh, 10px);
+    position: absolute;
+    bottom: 0px;
+    transform-origin: left;
+}
+.shrink{
+    transition: scale 1.5s linear;
+    scale: 0 1;
+}
+
+.instructions{
+    font-size: clamp(0.7em, 2vw, 1em);
+    position: absolute;
+    bottom: 1vh;
+    margin-left: 20px;
+    color: #00b300;
+}
