@@ -3,12 +3,16 @@ const right = document.getElementById("right");
 const time = document.getElementById("time");
 
 const hands = ["fist-noshake", "one", "two", "three", "four", "five", "six"];
-var score_player = 0;
-var score_bot = 0;
+var run = 1;
 var batting = 1;
 var player_input = 0;
-var run = 1;
+
+var score_player = 0;
+var score_bot = 0;
+
 var dots = 0;
+var balls = 0;
+var over_score = [-1, -1, -1, -1, -1, -1];
 
 transition("First Inning", "Batting");
 
@@ -18,14 +22,32 @@ document.addEventListener("keypress", (event) => {
     }
 })
 
+function update_over(){
+    over_score[(balls)%over_score.length] = player_input;
+    balls++;
+    var i = (balls -1)%over_score.length;
+    if(i == 0){
+        over_score = [-1, -1, -1, -1, -1];
+    }
+    var over = ""
+    while(i < over_score.length && over_score[i] != -1){
+        over += `${over_score[i]} `;
+        i++;
+    }
+    document.getElementById("over-score").innerHTML = over;
+}
+
 function bat_score(){
     if(player_input == random_right || dots >= 3){
         document.getElementById("score-value").innerHTML = "OUT";
         transition("Second Inning", "Balling");
+        document.getElementById("target").innerText = score_player + 1; //temp
+        document.getElementById("status").innerText = "Balling";
         batting = 0;
     }
     else{
         score_player += parseInt(player_input);
+        update_over();
         document.getElementById("score-value").innerHTML = score_player;
     }
 }
