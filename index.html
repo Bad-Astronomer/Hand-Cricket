@@ -10,16 +10,39 @@
 <body>
     <div class="container">
         <div id="time" class=""></div>
-        <div id="score">
-            <h2>SCORE</h2>
-            <h2 id="score-value">0</h2>
+
+        <div id="top-bar">
+            <div id="top-left">
+                <div id="over">
+                    <h2>Over</h2>
+                    <div id="balls">1 2 3 4 5 6</div>
+                    <div id="over-score"></div>
+                </div>
+                <div id="dots">
+                    <h2>Dots</h2>
+                </div>
+            </div>
+
+            <div id="score">
+                <h2>SCORE</h2>
+                <h2 id="score-value">0</h2>
+            </div>
+
+            <div id="top-right">
+                <h2>Target</h2>
+                <h2 id="target">-</h2>
+                <h2 id="status">Batting</h2>
+            </div>
         </div>
+
         <div id="transition">
             <h2 id="inning-no"></h2>
             <h2 id="inning-value"></h2>
         </div>
+
         <img src="./hand_svg/fist-noshake.svg" alt="" class="og" id="right">
         <img src="./hand_svg/fist-noshake.svg" alt="" class="og" id="left">
+
         <div class="instructions">
             <p>// Welcome, here are some <u>Instructions</u>: <br>
                 // Input a number between 1-6 during before time runs out. <br>
