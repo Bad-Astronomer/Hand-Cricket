@@ -12,14 +12,7 @@ body{
 .container{
     height: 100vh;
     width: 100vw;
-}
-#score h2{
-    text-align: center;
-    font-size: clamp(2em, 5vw, 7em);
-    position: relative;
-    top: 5vh;
-    margin: 0px;
-    padding: 0px;
+    background: linear-gradient(black, rgb(0, 0, 32));
 }
 
 .container img{
@@ -27,6 +20,7 @@ body{
     position: absolute;
     top: 55vh;
     translate: 0 -50%;
+    filter: invert(1);
 }
 #left{
     left: 20vw;
@@ -107,4 +101,59 @@ body{
     bottom: 1vh;
     margin-left: 20px;
     color: #00b300;
+}
+
+#top-bar{
+    background-color: rgb(20, 20, 20);
+    height: clamp(10em, 25vw, 12em);
+    min-height: fit-content;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+#top-bar h2{
+    margin: 0px;
+    padding: 0px;
+}
+
+#score{
+    flex: 1.5;
+}
+#score h2{
+    text-align: center;
+    font-size: clamp(2em, 5vw, 3em);
+    position: relative;
+}
+
+#top-left{
+    margin-left: 20px;
+    flex: 1;
+    top: 0px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#top-left h2{
+    margin: 0px 0px 0px default;
+}
+#over{
+    margin-bottom: 20px;
+}
+#over-score{
+    min-height: 1.5em;
+}
+
+#top-right{
+    margin-right: 20px;
+    flex: 1;
+    height: 100%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#target{
+    min-height: 2em;
+    margin-bottom: 20px;
 }
