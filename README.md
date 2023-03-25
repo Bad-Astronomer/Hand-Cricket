@@ -10,6 +10,7 @@ If no input is entered during the time span, it's considered a dot/ dead ball.
 3 Consecutive dot balls while batting will result in the loss of a wicket.  
 
 ## Optional/ Planned Updates:  
+Settings Page
 The time given to think decreases each over.  
 The bot will learn and pick the inputs that were chosen most often.  
 A toss at the start of the match to decide the inning.  
