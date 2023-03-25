@@ -12,6 +12,6 @@ If no input is entered during the time span, it's considered a dot/ dead ball.
 ## Optional/ Planned Updates:  
 The time given to think decreases each over.  
 The bot will learn and pick the inputs that were chosen most often.  
-Settingd Page.  
+Settings Page.  
 A toss at the start of the match to decide the inning.  
 Support for Multi-player.  
