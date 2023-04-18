@@ -15,6 +15,101 @@ body{
     background: linear-gradient(black, rgb(0, 0, 32));
 }
 
+/*! toss */
+.toss-container{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    transition: transform 200ms ease-in;
+    transform-origin: 50% 55vh;
+}
+
+#coin{
+    position: absolute;
+    inset: 60vh 50vw;
+    translate: -50% -50%;
+    height: clamp(5em, 15vh, 25em);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: gold;
+    transition: transform 0.125s ease-in-out;
+    border: goldenrod solid 5px;
+}
+#face{
+    font-family: "Space Mono", monospace;
+    font-size: 4em;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    display: auto;
+}
+
+.choice{
+    color: black;
+    font-size: 1.5em;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 60vh;
+    text-align: center;
+    padding: 20px;
+    translate: 0 -50%;
+    border-radius: 10px;
+    transition: scale 200ms ease-in;
+    cursor: pointer;
+}
+.choice:nth-child(odd){
+    left: calc(50vw - 250px);
+}
+.choice:nth-child(even){
+    right: calc(50vw - 250px);
+}
+.choice:nth-child(5), .choice:nth-child(6){
+    scale: 0;
+}
+.choice:hover{
+    scale: 1.1;
+}
+
+#ready{
+    scale: 0;
+    position: absolute;
+    bottom: 20vh;
+    width: 100%;
+    text-align: center;
+}
+#ready p{
+    font-size: 1.5em;
+    color: white;
+    background-color: green;
+    width: fit-content;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    transition: scale 200ms ease-in;
+    cursor: pointer;
+}
+#ready p:hover{
+    scale: 1.1;
+}
+
+#result{
+    padding-top: 100px;
+    text-align: center;
+    margin: 0;
+    color: white;
+    font-size: 3em;
+    opacity: 0;
+    cursor: default;
+    transition: opacity 200ms ease-in;
+}
+/*! toss ends here */
+
+#game-container{
+    display: none;
+}
 .container img{
     height: clamp(5em, 25vw, 30em);
     position: absolute;
