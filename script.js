@@ -3,18 +3,19 @@ const right = document.getElementById("right");
 const time = document.getElementById("time");
 
 const hands = ["fist-noshake", "one", "two", "three", "four", "five", "six"];
-var run = 1;
-var batting = 1;
-var player_input = 0;
+
+var run = 1; //game is running
+var batting = 1; //right is batting
+var player_input = 0; //keyboard input
+var inning = 0; //inning count
 
 var score_player = 0;
 var score_bot = 0;
 
+var target = 0;
 var dots = 0;
 var balls = 0;
 var over_score = [" ", " ", " ", " ", " ", " "];
-
-transition("First Inning", "Batting");
 
 document.addEventListener("keypress", (event) => {
     if(!isNaN(event.key) && event.key < 7){
@@ -24,7 +25,6 @@ document.addEventListener("keypress", (event) => {
 
 function update_over(){
     balls++;
-    console.log(over_score, balls);
 
     var over = "";
     for(var i = 0; i < over_score.length; i++){
@@ -43,20 +43,34 @@ function update_over(){
     }
 }
 
+function out(){
+    if(inning == 2){
+        result();
+    }
+    else{
+        inning = 2;
+    }
+}
+
 function bat_score(){
     if(player_input == random_right || dots >= 3){
         over_score[balls % over_score.length] = "X";
         update_over();
 
-        // Reset all variables
-        batting = 0;
-        balls = 0;
-        over_score = [" ", " ", " ", " ", " ", " "];
+        //! RESET
+        if(inning == 1){
+            // Reset all variables
+            batting = 0;
+            balls = 0;
+            over_score = [" ", " ", " ", " ", " ", " "];
+    
+            document.getElementById("score-value").innerHTML = "OUT";
+            document.getElementById("target").innerText = score_player + 1;
+            document.getElementById("status").innerText = "Balling";
+            transition("Second Inning", "Balling");
+        }
 
-        document.getElementById("score-value").innerHTML = "OUT";
-        document.getElementById("target").innerText = score_player + 1; //temp
-        document.getElementById("status").innerText = "Balling";
-        transition("Second Inning", "Balling");
+        out();
     }
     else{
         score_player += parseInt(player_input);
@@ -76,9 +90,23 @@ function ball_score(){
     }
     else{
         document.getElementById("score-value").innerHTML = "OUT";
-        over_score[balls % over_score.length] = "X";
+        over_score[balls % over_score.length] = "X";``
         update_over();
-        result();
+
+        //! RESET
+        if(inning == 1){
+            // Reset all variables
+            batting = 1;
+            balls = 0;
+            over_score = [" ", " ", " ", " ", " ", " "];
+
+            document.getElementById("score-value").innerHTML = "OUT";
+            document.getElementById("target").innerText = score_bot + 1;
+            document.getElementById("status").innerText = "Batting";
+            transition("Second Inning", "Batting");
+        }
+ 
+        out();
     }
 }
 
@@ -116,6 +144,7 @@ function transition(number, value, duration = 2){
 function shake(){
     var iter = 0;
     player_input = 0;
+
     left.className = "og shake_left";
     left.style.pointerEvents = "none";
     right.className = "og shake_right";
@@ -144,6 +173,7 @@ function shake(){
 
             //right hand (bot)
             random_right = Math.floor(Math.random()*6) + 1;
+
             right.className = "og";
             right.src = `./hand_svg/${hands[random_right]}.svg`;
             if(hands[random_right] != "six"){
@@ -160,8 +190,19 @@ function shake(){
             }
             else{
                 ball_score();
-                if(score_bot > score_player){
-                    result();
+            }
+
+            //!Endgame condition
+            if(inning == 2){
+                if(!batting){
+                    if(score_bot > score_player){
+                        result();
+                    }
+                }
+                else{
+                    if(score_player > score_bot){
+                        result();
+                    }
                 }
             }
         }
@@ -186,14 +227,24 @@ function shake(){
     }, 750);
 }
 
+//* Flip logic and getting started
+
 function main(){
+    inning = 1;
+    if(batting){
+        transition("First Inning", "Batting");
+        document.getElementById("status").innerText = "Batting";
+    }
+    else{
+        transition("First Inning", "Balling");
+        document.getElementById("status").innerText = "Balling";
+    }
+
     main_iter = 0;
     const main_interval = setInterval(() => {
-        if(run){
+        if(run){ //used to pause game during transition
             shake();
         }
         main_iter += 1;
     }, 3000);
 }
-
-main();
