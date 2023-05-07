@@ -14,4 +14,5 @@ The time given to think decreases each over.
 The bot will learn and pick the inputs that were chosen most often.  
 Settings Page.  
 ~~A toss at the start of the match to decide the inning~~  :white_check_mark:  
+~~Better styling with CSS~~ :white_check_mark:   
 Support for Multi-player.  
