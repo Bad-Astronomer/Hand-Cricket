@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Cricket | Play</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="toss-container">
+            <div id="coin">
+                <div id="face">H</div>
+            </div>
+
+            <h2 id="result">Toss Won!</h2>
+
+            <div class="choice" onclick="toss(event)">HEADS</div>
+            <div class="choice" onclick="toss(event)">TAILS</div>
+
+            <div class="choice" onclick="start(1)">BAT&nbsp</div>
+            <div class="choice" onclick="start(0)">BALL</div>
+
+            <div id="ready"><p onclick="ready()">READY!</p></div>
+        </div>
+
+        <div id="game-container">
+            <div id="time" class=""></div>
+
+            <div id="top-bar">
+                <div id="top-left">
+                    <div id="over">
+                        <h2>Over</h2>
+                        <div>1 2 3 4 5 6</div>
+                        <div id="over-score"></div>
+                    </div>
+                    <div>
+                        <h2>Balls</h2>
+                        <div id="balls">0</div>
+                    </div>
+                </div>
+
+                <div id="score">
+                    <h2>SCORE</h2>
+                    <h2 id="score-value">0</h2>
+                </div>
+
+                <div id="top-right">
+                    <h2>Target</h2>
+                    <h2 id="target">-</h2>
+                    <h2 id="status">Batting</h2>
+                </div>
+            </div>
+
+            <div id="transition">
+                <h2 id="inning-no"></h2>
+                <h2 id="inning-value"></h2>
+            </div>
+
+            <img src="./hand_svg/fist-noshake.svg" alt="" class="og" id="right">
+            <img src="./hand_svg/fist-noshake.svg" alt="" class="og" id="left">
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="flip_script.js"></script>
+</body>
+</html>
