@@ -16,3 +16,4 @@ Settings Page.
 ~~A toss at the start of the match to decide the inning~~  :white_check_mark:  
 ~~Better styling with CSS~~ :white_check_mark:   
 Support for Multi-player.  
+Hand recognition to get inputs instead of keyboard  
