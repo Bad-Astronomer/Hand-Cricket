@@ -17,3 +17,4 @@ Settings Page.
 ~~Better styling with CSS~~ :white_check_mark:   
 Support for Multi-player.  
 Hand recognition to get inputs instead of keyboard  
+Better animations and UI
